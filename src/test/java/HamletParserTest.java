@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,5 +28,17 @@ public class HamletParserTest {
 
     @Test
     public void testFindHamlet() {
+    }
+
+    @Test
+    public void textMatchAndReplacer() {
+        HamletParser parser = new HamletParser();
+        String testString = "seven Eight Nine SEVEN Eight Nine SevEn Eight Nine";
+        parser.setHamletData(testString);
+        String expected = "1 Eight Nine 1 Eight Nine 1 Eight Nine";
+
+        String actual = parser.textMatchAndReplacer("Seven", "1");
+
+        Assert.assertEquals(expected, actual);
     }
 }
