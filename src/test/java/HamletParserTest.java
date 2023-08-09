@@ -16,18 +16,26 @@ public class HamletParserTest {
 
     @Test
     public void testChangeHamletToLeon() {
+        HamletParser parser = new HamletParser();
+        String testString = "hamlET Eight Nine HAMLET Eight Nine Hamlet Eight Nine";
+        parser.setHamletData(testString);
+        String expected = "Leon Eight Nine Leon Eight Nine Leon Eight Nine";
+        parser.hamletToLeonConvert();
+        String actual = parser.getHamletData();
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testChangeHoratioToTariq() {
-    }
+        HamletParser parser = new HamletParser();
+        String testString = "HORATIO Eight Nine horatio Eight Nine HoraTIO Eight Nine";
+        parser.setHamletData(testString);
+        String expected = "Tariq Eight Nine Tariq Eight Nine Tariq Eight Nine";
+        parser.horatioToTariqConvert();
+        String actual = parser.getHamletData();
 
-    @Test
-    public void testFindHoratio() {
-    }
-
-    @Test
-    public void testFindHamlet() {
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
